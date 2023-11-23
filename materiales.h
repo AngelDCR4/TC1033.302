@@ -1,28 +1,27 @@
 #include <string>
 #ifndef Materiales_H
 #define Materiales_H
+#include <sstream>
 
 class Materiales{
     private:
-        std::string lista_materiales;
+        std::string nombre_material;
+        int cantidad;
     public:
-        Materiales(): lista_materiales(){};
-        Materiales(std::string lm):lista_materiales(lm){};
+        Materiales(){};
+        Materiales(std::string nom, int cant):nombre_material(nom),cantidad(cant){};
+        std::string to_string();
 //GETTER
-        std::string get_lista_materiales();
+
 //SETTER
-        void set_lista_materiales(std::string);
+
 //FUNCION EXTRA
-        void contar_materiales(int);
 };
-    std::string Materiales::get_lista_materiales(){
-        return lista_materiales;
-    }
-    void Materiales::set_lista_materiales(std::string lm){
-        lista_materiales = lm;
-    }
-    void Materiales::contar_materiales(int cont){
-        ;
-    }
+
+std::string Materiales::to_string(){
+    std::stringstream aux;
+    aux << nombre_material << " " << "son " << cantidad;
+    return aux.str();
+}
 
 #endif
